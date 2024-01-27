@@ -1,3 +1,4 @@
 - ADD PACKAGE.JSON
 -install few necessary packages(express,dotenv,body-parser,mongoose,nodemon)
 -create a basic node server(env file creation-declare port,)
+-create config 
