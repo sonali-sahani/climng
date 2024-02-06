@@ -4,12 +4,12 @@
 
 // import { useNavigate } from 'react-router-dom';
 
-const CreatePatient = (props) => {
+const ShowPatientDetails = (props) => {
     // Define the state with useState hook
    
   
     return (
-      <div className=''>
+      <div className='ShowPatientDetails'>
         <div className='container'>
           <div className='row'>
             <h1>new patient</h1>
@@ -19,5 +19,5 @@ const CreatePatient = (props) => {
     );
   };
   
-  export default CreatePatient;
+  export default ShowPatientDetails;
   

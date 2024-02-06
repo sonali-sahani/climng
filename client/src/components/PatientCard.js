@@ -4,12 +4,12 @@
 
 // import { useNavigate } from 'react-router-dom';
 
-const ShowPatientList = (props) => {
+const PatientCard = (props) => {
     // Define the state with useState hook
    
   
     return (
-      <div className='ShowPatientList'>
+      <div className='PatientCard'>
         <div className='container'>
           <div className='row'>
             <h1>new patient</h1>
@@ -19,6 +19,6 @@ const ShowPatientList = (props) => {
     );
   };
   
-  export default ShowPatientList;
+  export default PatientCard;
   
   
