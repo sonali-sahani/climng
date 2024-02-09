@@ -12,6 +12,7 @@ const ShowPatientList = (props) => {
       <div className='ShowPatientList'>
         <div className='container'>
           <div className='row'>
+            
             <h1>new patient</h1>
           </div>
         </div>
