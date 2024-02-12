@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ShowPatientList from './ShowPatientList';
+import Navbar from './navbar';
+import Footer from './footer';
+
 
 const CreatePatient = (props) => {
   // Define the state with useState hook
@@ -28,6 +31,7 @@ const CreatePatient = (props) => {
 
   return (
     <div className='CreatePatient'>
+      <Navbar/>
       <div className='container'>
         <div className='row'>
         <div className='col-md-8 m-auto'>
@@ -57,6 +61,7 @@ const CreatePatient = (props) => {
               </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
