@@ -17,7 +17,7 @@ app.use(express.json({
    extend: false
 }))
 //use the api group instead of muliple path for multiple routes
-app.use("/api/patients", patient)
+app.use("/api/patients", patients)
 // Serve the Static Files Along with the API on the same port
 app.use(express.static(
    path.join(__dirname, "./client/build")
