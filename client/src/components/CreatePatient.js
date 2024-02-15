@@ -1,30 +1,33 @@
- import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ShowPatientList from './ShowPatientList';
+// import { Slide, ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+
 import Navbar from './navbar';
 import Footer from './footer';
- 
+
 
 const CreatePatient = (props) => {
   // Define the state with useState hook
   const navigate = useNavigate();
   const [patient, setPatient] = useState({
-    Patient_id: '',
-    Name: '',
-    Address: '',
-    Phone_no: '',
-    Gender: '',
-    Age: '',
+    patient_id: '',
+    name: '',
+    address: '',
+    phone_no: '',
+    gender: '',
+    age: '',
   });
-  const [showToast, setShowToast] = useState(false);
+  // const [showToast, setShowToast] = useState(false);
 
   const onChange = (e) => {
     setPatient({ ...patient, [e.target.name]: e.target.value });
   };
   const onSubmit = (e) => {
-   // prevent the page from refreshing
+    // prevent the page from refreshing
     e.preventDefault();
     //API calls with the help of axios
     axios
@@ -39,16 +42,66 @@ const CreatePatient = (props) => {
           age: '',
           join_date: '',
         });
-      })
-      
-    }
+        //show the success alert
+        // toast.success('Patient added successfully!', {
+        //   position: "top-right",
+        //   autoClose: 500,
+        //   hideProgressBar: false,
+        //   closeOnClick: true,
+        //   pauseOnHover: true,
+        //   draggable: true,
+        //   progress: undefined,
+        //   theme: "dark",
+        //   transition: { Slide },
+        // });
 
+        // Delay the navigation slightly to allow the toast to be seen
+        setTimeout(() => {
+          // setShowToast(false); // Hide the toast
+          navigate('/'); // Navigate to homepage
+        }, 500); // Adjust the timeout as needed
+
+      })
+      .catch((err) => {
+        console.log('Error in Create Patient!');
+        console.log('The error is -> ')
+        console.log(err)
+        // Show the success alert
+        // toast.error('Something went wrong, try again!', {
+        //   position: "top-right",
+        //   autoClose: 5000,
+        //   hideProgressBar: false,
+        //   closeOnClick: true,
+        //   pauseOnHover: true,
+        //   draggable: true,
+        //   progress: undefined,
+        //   theme: "dark",
+        //   transition: Slide,
+        //   });
+        });
+      };
+  
+  // Define the state with useState hook
   return (
     <div className='CreatePatient'>
-      <Navbar/>
+      <Navbar />
+      {/* <ToastContainer
+        position="top-right"
+        autoClose={500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition={Slide}
+      /> */}
+
       <div className='container'>
         <div className='row'>
-        <div className='col-md-8 m-auto'>
+          <div className='col-md-8 m-auto'>
             <br />
             <Link to='/all-patient ' className='btn btn-outline-warning float-left'>
               show Patient List
@@ -61,20 +114,21 @@ const CreatePatient = (props) => {
             <form noValidate onSubmit={onSubmit}>
               <div className='form-group'>
                 <input
-                  type='number'
+                  type='Number'
                   placeholder='Enter Your ID'
                   name='patient_id'
                   className='form-control'
-                  value={patient.id}
+                  value={patient.patient_id}
                   onChange={onChange}
                 />
-                
-            </div>
-            <div className='form-group'>
+
+              </div>
+              <div className='form-group'>
+                {/* The type is "String" in model but "text" in component */}
                 <input
                   type='text'
                   placeholder='Enter Your Name'
-                  name='patient_name'
+                  name='name'
                   className='form-control'
                   value={patient.name}
                   onChange={onChange}
@@ -85,7 +139,7 @@ const CreatePatient = (props) => {
                 <input
                   type='text'
                   placeholder='Enter Your Address'
-                  name='patient_address'
+                  name='address'
                   className='form-control'
                   value={patient.address}
                   onChange={onChange}
@@ -94,11 +148,11 @@ const CreatePatient = (props) => {
 
               <div className='form-group'>
                 <input
-                  type='number'
+                  type='Number'
                   placeholder='Enter Your Phone.no'
-                  name='patient_phnno.'
+                  name='phone_no'
                   className='form-control'
-                  value={patient.phnno}
+                  value={patient.phone_no}
                   onChange={onChange}
                 />
               </div>
@@ -107,7 +161,7 @@ const CreatePatient = (props) => {
                 <input
                   type='text'
                   placeholder='Enter Your Gender'
-                  name='patient_gender'
+                  name='gender'
                   className='form-control'
                   value={patient.gender}
                   onChange={onChange}
@@ -115,23 +169,36 @@ const CreatePatient = (props) => {
               </div>
               <div className='form-group'>
                 <input
-                  type='number'
+                  type='Number'
                   placeholder='Enter Your Age'
-                  name='patient_age'
+                  name='age'
                   className='form-control'
                   value={patient.age}
                   onChange={onChange}
                 />
               </div>
-
+              <div className='form-group'>
+                <input
+                  type='Date'
+                  placeholder='Enter Your Join-Date'
+                  name='join_date'
+                  className='form-control'
+                  value={patient.join_date}
+                  onChange={onChange}
+                />
+              </div>
+              <input
+                type='submit'
+                className='btn btn-outline-warning btn-block mt-4'
+              />
 
 
             </form>
-            
-              </div>
+
+          </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

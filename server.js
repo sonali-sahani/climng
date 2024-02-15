@@ -3,9 +3,10 @@ const connectDB = require("./config/db");
 const cors = require("cors");
 const patients= require("./routes/api/patients");
 const path = require('path');
+require('dotenv').config({ path: "./.env"})
 
 //Connect to mongodb
-//connectDB();
+connectDB();
 
 const app = express();
 //Enabling CORS here for saftey of access into from other domains
@@ -16,7 +17,7 @@ app.use(express.json({
    extend: false
 }))
 //use the api group instead of muliple path for multiple routes
-app.use("/api/patients", patients)
+app.use("/api/patients", patient)
 // Serve the Static Files Along with the API on the same port
 app.use(express.static(
    path.join(__dirname, "./client/build")
