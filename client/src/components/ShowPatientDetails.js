@@ -4,12 +4,12 @@ import { Slide, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../App.css';
 import axios from 'axios';
-import footer from './footer';
-import navbar from './navbar';
+import Footer from './footer';
+import Navbar from './navbar';
 
 function ShowPatientDetails(props) {
   const [patient, setPatient] = useState({});
-  // const [showToast, setShowToast] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -45,7 +45,7 @@ function ShowPatientDetails(props) {
 
         // Delay the navigation slightly to allow the toast to be seen
         setTimeout(() => {
-          // setShowToast(false); // Hide the toast
+          setShowToast(false); // Hide the toast
           navigate('/'); // Navigate to homepage
         }, 5000); // Adjust the timeout as needed
       })
@@ -70,7 +70,7 @@ function ShowPatientDetails(props) {
 
   return (
     <div className='ShowPatientDetails'>
-      <navbar />
+      <Navbar />
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -83,7 +83,10 @@ function ShowPatientDetails(props) {
         pauseOnHover
         theme="dark"
         transition={Slide}
-      />
+      /><br />
+      <br />
+      <br />
+      <br />
 
       <div className='container'>
         <div className='row justify-content-center'>
@@ -94,7 +97,7 @@ function ShowPatientDetails(props) {
 
             <div className='row justify-content-center'>
               <div className='col-md-12'>
-                <table className='table table-striped table-bordered table-dark'>
+                <table className='table table-striped table-bordered tbr'>
                   <tbody>
                     <tr>
                       <th scope='row'>Patient_id</th>
@@ -129,24 +132,24 @@ function ShowPatientDetails(props) {
               <div className='col-md-4'>
                 <button
                   type='button'
-                  className='btn btn-outline-danger btn-lg btn-block'
+                  className='btn button btn-lg btn-block'
                   onClick={() => {
                     onDeleteClick(patient._id);
                   }}
                 >
-                  Delete patient
+                  Delete Patient
                 </button>
               </div>
               <div className='col-md-4'>
                 <Link
                   to={`/edit-patient/${patient._id}`}
-                  className='btn btn-outline-info btn-lg btn-block'
+                  className='btn button btn-lg btn-block'
                 >
-                  Edit patient
+                  Edit Patient
                 </Link>
               </div>
               <div className='col-md-4'>
-                <Link to='/' className='btn btn-outline-warning btn-lg btn-block'>
+                <Link to='/all-patient' className='btn button btn-lg btn-block'>
                   Show Patient List
                 </Link>
               </div>
@@ -159,9 +162,9 @@ function ShowPatientDetails(props) {
         </div>
       </div>
 
-      <footer />
+      <Footer />
     </div>
   );
 }
 
-export default ShowPatientDetails;
+export default ShowPatientDetails

@@ -1,22 +1,33 @@
-// import React, { useState } from 'react';
+import React from 'react'
+//import { Link } from 'react-router-dom'
+import '../App.css'
+import Navbar from './navbar';
+import Footer from './footer';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-
-import { useNavigate } from 'react-router-dom';
 
 const Home = (props) => {
-  // Define the state with useState hook
- 
-
   return (
-    <div className='CreatePatient'>
+    <div className='Home'>
+      <Navbar />
       <div className='container'>
         <div className='row'>
-          <h1>Home page</h1>
+          
+          <div className='col-md-8 m-auto web-desc'>
+            <h1 className='display-5 text-center heading'>CLINIC MANAGEMENT SYSTEM</h1>
+            <h6 className='lead text-center'>Welcome to our Website</h6>
+            <p className='lead text-center'>This Can Help To Manage The Doctors Appointments </p>
+            <Link to='/all-patient ' className='btn button float-left'>
+              GET STARTED
+            </Link>
+
+
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
 
-export default Home;
+      <Footer />
+    </div>
+  )
+}
+
+export default Home

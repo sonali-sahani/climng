@@ -1,35 +1,33 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import '../App.css'
 
-import { useNavigate } from 'react-router-dom';
 
 const PatientCard = (props) => {
     // Define the state with useState hook
    
     const patient=props.patient
     return (
-      <div className='PatientCard'>
+      <div className='card-container'>
         <img
-        src='https://images.unsplash.com/photo-1495446815901-a7297e633e8d'
+        src='https://as1.ftcdn.net/v2/jpg/06/59/99/78/1000_F_659997817_Lb8B0s2tZ7LpVtqGBSJhOJwowSKsz3vG.jpg'
         alt='Patients'
         height={200}
       />
         <div className='desc'>
         <h2>
-          <Link to={ `/show-patient/${patient._id}` }>
-            {patient.title}  
+          <Link to={ `/show-patientDetails/${patient._id}` }>
+            {patient.name}  
           </Link> 
         </h2>
 
-          <h3>{patient.id}</h3>
-          <p>{patient.name}</p>
+          <h3>{patient.patient_id}</h3>
           </div>
         </div>
       
     )
-  };
+  }
   
-  export default PatientCard;
+  export default PatientCard
   
   

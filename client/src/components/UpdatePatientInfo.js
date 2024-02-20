@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../App.css';
-import navbar from './navbar';
-import footer from './footer';
+import Navbar from './navbar';
+import Footer from './footer';
 
 function UpdatePatientInfo(props) {
   const [patient, setPatient] = useState({
@@ -59,7 +59,7 @@ function UpdatePatientInfo(props) {
     axios
       .put(`/api/patients/${id}`, data)
       .then((res) => {
-        navigate(`/show-patient/${id}`);
+        navigate(`/show-patientDetails/${id}`);
       })
       .catch((err) => {
         console.log('Error in UpdatePatientInfo PUT request ->');
@@ -69,13 +69,15 @@ function UpdatePatientInfo(props) {
 
   return (
     <div className='UpdatePatientInfo'>
-      <navbar />
-      
+      <Navbar />
+      <br />
+      <br />
+      <br />
       <div className='container'>
         <div className='row'>
           <div className='col-md-8 m-auto'>
             <br />
-            <Link to='/' className='btn btn-outline-warning float-left'>
+            <Link to='/' className='btn button float-left'>
               Show Patient List
             </Link>
           </div>
@@ -179,7 +181,7 @@ function UpdatePatientInfo(props) {
 
             <button
               type='submit'
-              className='btn btn-outline-info btn-lg btn-block'
+              className='btn button btn-lg btn-block'
             >
               Update Patient
             </button>
@@ -187,8 +189,10 @@ function UpdatePatientInfo(props) {
           </form>
         </div>
       </div>
+      <br />
+      <br />
 
-      <footer />
+      <Footer />
     </div>
   );
 }

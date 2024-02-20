@@ -60,7 +60,7 @@ router.put('/:id', (req, res) => {
 // @access Public
 //READ,DELETE,SEARCH operation
 router.delete('/:id', (req, res) => {
-  Patient.findByIdAndRemove(req.params.id, req.body)
+  Patient.findByIdAndDelete(req.params.id, req.body)
     .then((patient) => res.json({ mgs: 'Patient entry deleted successfully' }))
     .catch((err) => res.status(404).json({ error: 'No such a patient' }));
   // res.json({ ok: "Delete the patient  Id is successfully"})

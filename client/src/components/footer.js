@@ -1,9 +1,9 @@
 import React from "react";
 
 const Footer = () => (
-  <footer className="page-footer font-small bg-warning text-dark h-auto fixed-bottom" > {/* Add fixed-bottom class */}
+  <footer className="page-footer font-small text-dark h-auto fixed-bottom button-1" > {/* Add fixed-bottom class */}
     <div className="container text-center">
-      <div className="py-1">Built with ❤️️ By Sonali | © 2024 Copyright</div>
+      <div className="py-1">Built By Sonali | © 2024 Copyright</div>
     </div>
   </footer>
 );
