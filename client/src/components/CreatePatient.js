@@ -85,6 +85,9 @@ const CreatePatient = (props) => {
   return (
     <div className='CreatePatient'>
       <Navbar />
+      <br />
+      <br />
+      
       {/* <ToastContainer
         position="top-right"
         autoClose={500}
@@ -103,7 +106,7 @@ const CreatePatient = (props) => {
         <div className='row'>
           <div className='col-md-8 m-auto'>
             <br />
-            <Link to='/all-patient ' className='btn btn-outline-warning float-left'>
+            <Link to='/all-patient ' className='btn button float-left'>
               show Patient List
             </Link>
           </div>
